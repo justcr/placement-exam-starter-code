@@ -1,23 +1,80 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
 
-// First, tell us your name
-let yourName = "Jane Doe" // HINT: Replace this with your own name!
+//counter
+let gbCounter = 0;
 
-// We'll use these variables to track the counts of each cookie type
-let gb = 0      // Ginger bread
-let cc = 0      // Chocolate Chip
-let sugar = 0   // Sugar Sprinkle
+let qtygb = localStorage.getItem("qty-gb");
 
-// Code to update name display 
-document.getElementById('credit').textContent = `Created by ${yourName}`
 
-// Event listener for clicks on the "+" button for Ginger Bread cookies
-document.getElementById('add-gb').addEventListener('click', function() {
-    // HINT: You can delete this console.log after you no longer need it!
-    console.log('Ginger bread + button was clicked!')
+let ccCounter = 0; 
 
-    // TODO: Write the code to be run when the "+" button for "Ginger Bread" is clicked
-})
+let qtycc = localStorage.getItem("qty-cc");
 
-// TODO: Hook up event listeners for the rest of the buttons
+
+let sugarCounter = 0;
+
+let qtysugar = localStorage.getItem("qty-sugar");
+
+
+
+//tbrow
+let gbTbRow = document.querySelector("qty-gb");
+
+let ccTbRow = document.querySelector("qty-cc");
+
+let sugarTbRow = document.querySelector("qty-sugar");
+
+let totalTbRow = document.querySelector("qty-total");
+
+//btns
+document.getElementById("add-gb").addEventListener("click",function(){
+    //console.log(gbTbRow);
+   gbCounter = gbCounter + 1;
+   gbTbRow.textContent = gbCounter;
+
+   localStorage.setItem("qty-gb", gbCounter);
+});
+
+document.getElementById("minus-gb").addEventListener("click",function(){
+    //console.log(gbTbRow);
+   gbCounter = gbCounter - 1;
+   gbTbRow.textContent = gbCounter;
+
+   localStorage.setItem("qty-gb", ccCounter);
+});
+
+document.getElementById("add-cc").addEventListener("click",function(){
+    //console.log(ccTbRow);
+   ccCounter = ccCounter + 1;
+   ccTbRow.textContent = ccCounter;
+
+   localStorage.setItem("qty-cc", ccCounter);
+});
+
+document.getElementById("minus-cc").addEventListener("click",function(){
+    //console.log(ccTbRow);
+   ccCounter = ccCounter - 1;
+   ccTbRow.textContent = ccCounter;
+
+   localStorage.setItem("qty-cc", ccCounter);
+});
+
+document.getElementById("add-sugar").addEventListener("click",function(){
+    //console.log(sugarTbRow);
+    sugarCounter = sugarCounter + 1;
+    sugarTbRow.textContent = sugarCounter;
+
+   localStorage.setItem("qty-sugar", sugarCounter);
+});
+
+document.getElementById("minus-sugar").addEventListener("click",function(){
+    //console.log(sugarTbRow);
+    sugarCounter = sugarCounter - 1;
+    sugarTbRow.textContent = sugarCounter;
+
+   localStorage.setItem("qty-sugar", sugarCounter);
+});
+
+//total votes
+totalTbRow.textContent = gbCounter + ccCounter + sugarCounter;
+
+document.getElementById("credit").textContent = `Created by ${Carlos Rodriguez}`
